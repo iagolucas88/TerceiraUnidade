@@ -61,7 +61,7 @@ void MainWindow::on_ButtonConnect_clicked()
 
     if(socket->waitForConnected(3000)){
         //Connect Staus showed on the text browser.
-        statusC = "Connected.";
+        statusC = "Connected.\n";
         qDebug() << "Connected.";
         ui->textBrowser->append(statusC);
     }
@@ -76,7 +76,7 @@ void MainWindow::on_ButtonDisconnect_clicked()
 {
     //Disconnect Staus showed on the text browser.
     QString statusD;
-    statusD = "Disconnected.";
+    statusD = "Disconnected.\n";
     ui->textBrowser->append(statusD);
 
     socket->close();
@@ -85,6 +85,10 @@ void MainWindow::on_ButtonDisconnect_clicked()
 //Start Button: Run the program.
 void MainWindow::on_ButtonStart_clicked()
 {
+    //Program started showed on the text browser.
+    QString statusR;
+    statusR = "Started.\n";
+    ui->textBrowser->append(statusR);
 
     //Start the data production.
     temporizador = startTimer((ui->Timing_box->value())*1000);
@@ -93,6 +97,11 @@ void MainWindow::on_ButtonStart_clicked()
 //Stop Button: Stop the program.
 void MainWindow::on_ButtonStop_clicked()
 {
+    //Program stoped showed on the text browser.
+    QString statusT;
+    statusT = "Stoped.\n";
+    ui->textBrowser->append(statusT);
+
     //Stop the data production.
     killTimer(temporizador);
 }
