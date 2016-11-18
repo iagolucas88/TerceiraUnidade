@@ -1,1 +1,0 @@
-# 3ProjetoParadigmas-Correto-
